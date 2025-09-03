@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Subjects() {
-  let [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const [isUpdate, setIsUpdate] = useState(true);
 
   console.log("Subject component re-rendered");
   
   const apiUrl = "https://62d6c51451e6e8f06f12bd5d.mockapi.io/faculties";
 
-  fetch(apiUrl)
-  .then(res=>res.json())
-  .then(res=>setData(res));
+  useEffect(()=>{
+    fetch(apiUrl)
+    .then(res=>res.json())
+    .then(res=>setData(res));
+  },[isUpdate]);
   
 
   const foramtedData = data.map((sub, index)=>{
@@ -29,6 +32,7 @@ function Subjects() {
       </>
     );
   });
+
   return (
     <div class="section properties">
     <div class="container">
@@ -46,6 +50,13 @@ function Subjects() {
           <a href="#!" data-filter=".rac">Penthouse</a>
         </li>
       </ul>
+      <div className='row'>
+        <div className='col'>
+          <button onClick={()=>{
+            setIsUpdate(!isUpdate);
+          }} className='btn btn-info'>Refresh</button>
+        </div>
+      </div>
       <div class="row properties-box">
         {foramtedData}
       </div>
