@@ -37,7 +37,7 @@ function Layout() {
                         
                         <ul class="nav">
                           <li><Link to="/">Home</Link></li>
-                          <li><Link to="/subjects">Subjects</Link></li>
+                          <li><Link to="/students">Subjects</Link></li>
                           <li><Link to="/demoeffect">DemoEffect</Link></li>
                           <li><a href="contact.html">Contact Us</a></li>
                           <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>

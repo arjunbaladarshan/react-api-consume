@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './Home';
 import DemoEffect from './DemoEffect';
+import StudentDetail from './StudentDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,8 +15,12 @@ root.render(
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}></Route>
-          <Route path='/subjects' element={<Subjects/>}/>
+          <Route path='/students' element={<Subjects/>}/>
+
+          <Route path='/student/:id' element={<StudentDetail/>}/>
+
           <Route path='/demoeffect' element={<DemoEffect/>}/>
+          
         </Route>
       </Routes>
     </BrowserRouter>

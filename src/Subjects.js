@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 function Subjects() {
   const [data, setData] = useState([]);
@@ -6,7 +7,7 @@ function Subjects() {
 
   console.log("Subject component re-rendered");
   
-  const apiUrl = "https://62d6c51451e6e8f06f12bd5d.mockapi.io/faculties";
+  const apiUrl = "https://62d6c51451e6e8f06f12bd5d.mockapi.io/students";
 
   useEffect(()=>{
     fetch(apiUrl)
@@ -20,11 +21,11 @@ function Subjects() {
       <>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/property-01.jpg" alt="" /></a>
-            <h4><a href="property-details.html">{sub.subjectName}</a></h4>
+            <Link to={"/student/"+sub.id}><img src={sub.StudentImage} alt="" /></Link>
+            <h4><Link to={"/student/"+sub.id}>{sub.StudentName}</Link></h4>
             <ul>
-              <li>subjectCode: <span>{sub.subjectCode}</span></li>
-              <li>subjectFaculty: <span>{sub.subjectFaculty}</span></li>
+              <li>StudentRollNo: <span>{sub.StudentRollNo}</span></li>
+              <li>StudentSemester: <span>{sub.StudentSemester}</span></li>
               
             </ul>
           </div>
